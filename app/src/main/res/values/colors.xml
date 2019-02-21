@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#fdfdfe</color>
+    <color name="colorPrimaryDark">#fdfdfe</color>
+    <color name="colorAccent">#7f7e7e</color>
+    <color name="sign_sub_title">#FF7F7E7E</color>
+    <color name="dark_red">#42de343b</color>
+    <color name="item_under_line">#ffeee5e5</color>
+    <color name="app_text_whit">#FFFFFFFF</color>
+    <color name="btn_red">#DE343B</color>
+    <color name="notice_gray">#FFAEA9A9</color>
+    <color name="trans">@android:color/transparent</color>
+    <array name="array_dot_active">
+        <item>@color/btn_red</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/colorAccent</item>
+    </array>
+
+</resources>

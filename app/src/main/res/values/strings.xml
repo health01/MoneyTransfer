@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">MoneyTransfer</string>
+
+    <string name="service_error">Server error</string>
+    <string name="not_found">請求的資源不存在</string>
+    <string name="timeout">timeout</string>
+    <string name="unexpected_error">unexpected error</string>
+    <string name="network_wrong">設備離線，請檢查設備網絡連接</string>
+    <string name="logout">Logout</string>
+
+    <string name="api_success">Success</string>
+    <string name="api_failure">failure</string>
+    <string name="token_failed">token failure</string>
+
+    <string name="error_confirm_password">密碼和確認密碼不同一致!</string>
+    <string name="error_id">Please fill in the correct ID</string>
+    <string name="error_phone">Please fill in the correct cell phone number</string>
+    <string name="error_code">error verifier code</string>
+    <string name="err_name">"用戶名字不能為空"</string>
+    <string name="err_pw">密碼不能為空</string>
+    <string name="err_con_pw">確認密碼不能為空</string>
+    <string name="err_not_match">密碼驗證錯誤</string>
+    <string name="err_failed">登陸失敗,請重新登陸</string>
+    <string name="err_email">電郵地址不能為空</string>
+    <string name="err_email_phone">電郵地址或電話號碼不能為空</string>
+    <string name="err_email_format">電郵地址格式錯誤</string>
+    <string name="err_email_phone_format">電郵地址或電話號碼格式錯誤</string>
+    <string name="err_email_repeat">帳號已被註冊</string>
+    <string name="err_email_length">請輸入6到16位數密碼，最少包括一個字母</string>
+    <string name="err_phone_length">請輸入正確的電話號碼格式</string>
+    <string name="err_email_error">驗證郵箱地址失敗,請重試</string>
+    <string name="error_login_error">service is temporarily unavailable!</string>
+    <string name="btn_login">Login</string>
+
+
+    <string name="email">Email Address</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+
+    <!-- Balance Check -->
+    <string name="money_transfer">Money Transfer (HKD)</string>
+    <string name="type_amount">Type your amount here</string>
+    <string name="transfer">Transfer</string>
+    <string name="result">Result</string>
+    <string name="loading">Loading...</string>
+    <string name="success">success</string>
+
+</resources>

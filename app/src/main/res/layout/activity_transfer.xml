@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+                name="viewModel"
+                type="com.example.moneytransfer.ui.transfer.TransferViewModel"/>
+
+    </data>
+
+    <android.support.v7.widget.LinearLayoutCompat
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.transfer.TransferActivity"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            android:layout_margin="20dp"
+    >
+
+        <TextView
+                android:id="@+id/ttt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/money_transfer"
+                android:textSize="20dp"
+        />
+
+        <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/edt_balance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="20dp"
+                android:hint="@string/type_amount"
+                android:inputType="number"
+                android:maxLength="7"
+                android:text="@={viewModel.form.balance}"
+                android:paddingLeft="15dp"
+                android:paddingEnd="10dp"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+        />
+
+        <android.support.v7.widget.AppCompatButton
+                android:layout_marginTop="10dp"
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@color/btn_red"
+                android:onClick="@{() -> viewModel.onTransferClick()}"
+                android:text="@string/transfer"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:alpha="@{viewModel.form.isValid ? 1.0f : 0.5f}"
+                android:enabled="@{viewModel.form.isValid ? true : false}"
+        />
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+</layout>

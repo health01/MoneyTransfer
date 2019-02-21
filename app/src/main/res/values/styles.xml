@@ -1,0 +1,22 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@android:color/holo_blue_light</item>
+        <item name="colorPrimaryDark">@android:color/holo_green_dark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="error_appearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/btn_red</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="CounterStyle" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <!--other parameters that you want to change -->
+    </style>
+
+
+</resources>

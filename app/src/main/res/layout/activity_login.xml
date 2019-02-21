@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+                name="viewModel"
+                type="com.example.moneytransfer.ui.signIn.SignInViewModel"/>
+
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <android.support.constraint.Guideline
+                android:id="@+id/line_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.066"/>
+
+        <android.support.constraint.Guideline
+                android:id="@+id/line_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.933"/>
+
+        <android.support.constraint.Guideline
+                android:id="@+id/line_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1"/>
+
+        <android.support.constraint.Guideline
+                android:id="@+id/line_top_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.2"/>
+
+        <android.support.constraint.Guideline
+                android:id="@+id/line_mid_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.28"/>
+
+        <android.support.constraint.Guideline
+                android:id="@+id/line_mid_ver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5"/>
+
+        <android.support.constraint.Guideline
+                android:id="@+id/line_bot_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.946"/>
+
+
+        <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="@string/app_name"
+                android:textColor="@android:color/black"
+                app:layout_constraintBottom_toTopOf="@+id/txt_subtitle"
+                app:layout_constraintLeft_toLeftOf="@+id/line_left"
+                app:layout_constraintRight_toRightOf="@+id/line_right"
+                app:layout_constraintTop_toBottomOf="@+id/line_top"/>
+
+
+        <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txt_subtitle"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:text="wellcome"
+                android:textColor="@color/sign_sub_title"
+                app:layout_constraintBottom_toTopOf="@+id/line_top_end"
+                app:layout_constraintLeft_toLeftOf="@+id/line_left"
+                app:layout_constraintRight_toRightOf="@+id/line_right"
+                app:layout_constraintTop_toBottomOf="@+id/txt_title"/>
+
+
+        <android.support.v7.widget.LinearLayoutCompat
+                android:id="@+id/mid_group"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toLeftOf="@+id/line_left"
+                app:layout_constraintRight_toRightOf="@+id/line_right"
+                app:layout_constraintTop_toBottomOf="@+id/line_mid_start">
+
+
+            <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:error="@{viewModel.form.emailError}"
+                    app:errorEnabled="true"
+                    app:counterOverflowTextAppearance="@style/error_appearance"
+                    app:counterTextAppearance="@style/CounterStyle"
+                    app:errorTextAppearance="@style/error_appearance"
+            >
+
+                <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edt_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autoLink="email"
+                        android:drawablePadding="10dp"
+                        android:hint="@string/email"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:text="@={viewModel.form.email}"
+                        android:textColor="@android:color/black"
+                        android:textSize="20dp"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                    android:id="@+id/password_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="16"
+                    app:counterOverflowTextAppearance="@style/error_appearance"
+                    app:counterTextAppearance="@style/CounterStyle"
+                    app:errorTextAppearance="@style/error_appearance"
+                    app:error="@{viewModel.form.passwordError}">
+
+                <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edt_pw"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:hint="@string/password"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:text="@={viewModel.form.password}"
+                        android:textColor="@android:color/black"
+                        android:maxLength="16"
+                        android:textSize="20dp"
+                        android:singleLine="true"
+                        android:imeOptions="actionDone"
+                />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/btn_red"
+                    android:onClick="@{() -> viewModel.onLoginClick()}"
+                    android:text="@string/login"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="20dp"
+                    android:alpha="@{viewModel.form.isValid ? 1.0f : 0.5f}"
+                    android:enabled="@{viewModel.form.isValid ? true : false}"
+            />
+        </android.support.v7.widget.LinearLayoutCompat>
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
