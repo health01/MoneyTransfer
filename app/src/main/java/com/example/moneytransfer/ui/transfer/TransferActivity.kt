@@ -1,6 +1,7 @@
 package com.example.moneytransfer.ui.transfer
 
 import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -15,7 +16,7 @@ import com.example.moneytransfer.databinding.ActivityTransferBinding
 import com.example.moneytransfer.di.Injectable
 import com.example.moneytransfer.ui.result.ResultActivity
 import com.example.moneytransfer.ui.signIn.SignInActivity
-import com.example.moneytransfer.viewmodel.BaseViewModelFactory
+import com.example.moneytransfer.viewmodel.ViewModelFactory
 import javax.inject.Inject
 
 
@@ -26,7 +27,7 @@ class TransferActivity : AppCompatActivity(), TransferNavigator, Injectable {
     }
 
     @Inject
-    lateinit var factory: BaseViewModelFactory
+    lateinit var factory: ViewModelProvider.Factory
     lateinit var transferViewModel: TransferViewModel
     lateinit var viewDataBinding: ActivityTransferBinding
 

@@ -9,7 +9,7 @@ class EncryptUtils {
 
     companion object {
         private val KEY = BuildConfig.pin
-        private val INITVECTOR = BuildConfig.vetor;// 16 bytes IV
+        private val INITVECTOR = BuildConfig.initvetor;// 16 bytes IV
 
         fun encrypt(json: String): String {
             return Encryptor.encrypt(KEY, INITVECTOR, json)

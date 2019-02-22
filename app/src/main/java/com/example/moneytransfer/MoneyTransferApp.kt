@@ -24,8 +24,6 @@ class MoneyTransferApp : Application(), HasActivityInjector {
             .withInterceptor(TokenInterceptor())
 //            .withLoaderDelayed(2000)
             .withApiHost("http://188.166.219.109/test/moneytranster/api/")
-//            .withApiHost(ProjectConfig.APIUrl)
-//                .withApiHost(" http://noah.solutions/wow_media/")
             .configure()
         AppInjector.init(this)
 

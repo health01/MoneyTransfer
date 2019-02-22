@@ -6,6 +6,7 @@ import com.example.moneytransfer.util.app.AccountManager
 import com.example.moneytransfer.util.app.AppController
 import com.example.moneytransfer.data.repository.BalanceRepository
 import com.example.moneytransfer.util.BaseViewModel
+import com.example.moneytransfer.util.Extension.encryption
 import com.example.moneytransfer.util.Extension.md5
 import com.example.moneytransfer.util.network.ApiErrorModel
 import com.example.moneytransfer.util.app.network.ApiResponse
@@ -44,7 +45,7 @@ class SignInViewModel @Inject constructor(private val repository: BalanceReposit
                     override fun success(data: LoginStatus) {
 
                         if (data.success) {
-                            AccountManager.setAuth(data.auth)
+                            AccountManager.setAuth(data.auth.encryption)
                             AccountManager.setSignState(true)
                             navigator.goToTransferActivity()
                         }

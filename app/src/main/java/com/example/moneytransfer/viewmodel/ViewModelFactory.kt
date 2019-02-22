@@ -9,18 +9,31 @@ import javax.inject.Singleton
 
 
 @Singleton
-class BaseViewModelFactory @Inject constructor(private val creators: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>) :
-    ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        val creator = creators[modelClass] ?: creators.entries.firstOrNull {
-            modelClass.isAssignableFrom(it.key)
-        }?.value ?: throw IllegalArgumentException("unknown model class $modelClass") as Throwable
+/**
+ * ViewModelFactory which uses Dagger to create the instances.
+ */
+class ViewModelFactory @Inject constructor(
+    private val creators: @JvmSuppressWildcards Map<Class<out ViewModel>, Provider<ViewModel>>
+) : ViewModelProvider.Factory {
+
+    override fun <T : ViewModel> create(viewModelClass: Class<T>): T {
+        var creator: Provider<out ViewModel>? = creators[viewModelClass]
+        if (creator == null) {
+            for ((key, value) in creators) {
+                if (viewModelClass.isAssignableFrom(key)) {
+                    creator = value
+                    break
+                }
+            }
+        }
+        if (creator == null) {
+            throw IllegalArgumentException("Unknown view model class " + viewModelClass)
+        }
         try {
             @Suppress("UNCHECKED_CAST")
             return creator.get() as T
         } catch (e: Exception) {
             throw RuntimeException(e)
         }
-
     }
 }
