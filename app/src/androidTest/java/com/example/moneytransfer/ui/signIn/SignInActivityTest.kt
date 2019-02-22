@@ -28,14 +28,8 @@ class SignInActivityTest {
 
 
     @Before
-    fun setup() {
-        AccountManager.logoutWithClear()
-    }
-
-
-    @Before
     @After
-    fun clear() {
+    fun setup() {
         AccountManager.logoutWithClear()
     }
 
@@ -46,19 +40,20 @@ class SignInActivityTest {
     fun loginActivityTest() {
 
         //login with wrong format
-        onView(withId(R.id.edt_email)).perform(typeText("Jack"), closeSoftKeyboard());
-        onView(withId(R.id.edt_pw)).perform(typeText("1234"), closeSoftKeyboard());
+        onView(withId(R.id.edt_email)).perform(typeText("Jack"), closeSoftKeyboard())
+        onView(withId(R.id.edt_pw)).perform(typeText("1234"), closeSoftKeyboard())
         //verify
-        onView(withId(R.id.btn_login)).check(matches(not(isEnabled())));
+        onView(withId(R.id.btn_login)).check(matches(not(isEnabled())))
 
         //login with right format
-        onView(withId(R.id.edt_email)).perform(replaceText("test@gmail.com"), closeSoftKeyboard());
-        onView(withId(R.id.edt_pw)).perform(replaceText("12346a"), closeSoftKeyboard());
+        onView(withId(R.id.edt_email)).perform(replaceText("test@gmail.com"), closeSoftKeyboard())
+        onView(withId(R.id.edt_pw)).perform(replaceText("12346a"), closeSoftKeyboard())
         //verify
-        onView(withId(R.id.btn_login)).check(matches(isEnabled()));
+        onView(withId(R.id.btn_login)).check(matches(isEnabled()))
         onView(withId(R.id.btn_login)).perform(click())
 
-        onView(withId(R.id.linear_transfer)).check(matches(isDisplayed()));
+        onView(withId(R.id.linear_transfer)).check(matches(isDisplayed()))
+        Assert.assertTrue(mActivityTestRule.activity.isFinishing)
 
     }
 
