@@ -1,8 +1,12 @@
 package com.example.moneytransfer.util.Encryption
 
 import android.support.test.runner.AndroidJUnit4
+import com.example.UtilKotlinObj
 import com.example.moneytransfer.BuildConfig
 import com.example.moneytransfer.util.EncryptUtils
+import io.mockk.every
+import io.mockk.mockkObject
+import io.mockk.verify
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -33,5 +37,20 @@ class EncryptorTest {
 
         Assert.assertEquals("1234567890", EncryptUtils.decrypt("CqEwo/LDaiaW04njfK8paw=="))
         Assert.assertNotEquals("12345678901",  EncryptUtils.encrypt("CqEwo/LDaiaW04njfK8paw=="))
+    }
+
+    @Test
+    fun UtilKotlinObjTest() {
+        // Given
+        val util = UtilKotlinObj
+        mockkObject(UtilKotlinObj)
+        every { UtilKotlinObj.ok() } returns "Tsai"
+
+        // When
+        util.ok()
+
+        // Then
+        verify { UtilKotlinObj.ok() }
+        Assert.assertEquals("Tsai", UtilKotlinObj.ok())
     }
 }

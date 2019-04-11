@@ -4,6 +4,7 @@ package com.example.moneytransfer.ui.signIn
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.*
 import android.support.test.espresso.assertion.ViewAssertions.matches
+import android.support.test.espresso.core.internal.deps.guava.base.Joiner.on
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.filters.LargeTest
 import android.support.test.rule.ActivityTestRule
@@ -16,6 +17,7 @@ import com.example.moneytransfer.util.app.AccountManager
 import org.hamcrest.Matchers.not
 import org.junit.*
 import org.junit.runner.RunWith
+import org.mockito.Mockito.mock
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
@@ -32,6 +34,7 @@ class SignInActivityTest {
     fun setup() {
         AccountManager.logoutWithClear()
     }
+
 
     /**
     Test before login
